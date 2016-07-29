@@ -96,7 +96,7 @@ public class BaseActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SiteActivity.class));
                 break;
             case R.id.nav_item_configuracoes:
-                Toast.makeText(BaseActivity.this, "Clicou em Configurações", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Clicou em Configurações", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_item_sair:
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));

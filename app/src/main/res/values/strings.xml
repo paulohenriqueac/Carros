@@ -16,4 +16,9 @@
     <string name="site_livro">Site do Livro</string>
     <string name="configuracoes">Configurações</string>
     <string name="sair">Sair</string>
+
+    <string name="sobre_titulo">Aplicativo Carros</string>
+    <string name="sobre_mensagem">Desenvolvido por Paulo Andrade, com base nos livros
+    Android Essencial e Dominando o Android, da Editora NOVATEC.</string>
+    <string name="sobre_btn_fechar">Fechar</string>
 </resources>

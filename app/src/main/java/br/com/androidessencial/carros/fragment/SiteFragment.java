@@ -2,7 +2,7 @@ package br.com.androidessencial.carros.fragment;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import br.com.androidessencial.carros.R;
+import br.com.androidessencial.carros.dialog.SobreDialog;
 
-public class SiteFragment extends Fragment {
+public class SiteFragment extends BaseFragment {
     private static final String URL_SOBRE = "http://www.livroandroid.com.br/sobre.htm";
     private WebView webView;
     private ProgressBar progressBar;
@@ -55,6 +57,16 @@ public class SiteFragment extends Fragment {
             public void onPageFinished(WebView webview, String url){
                 progressBar.setVisibility(View.INVISIBLE);
                 swipeLayout.setRefreshing(false);
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView webView, String url){
+                if (url != null && url.endsWith("sobre.htm")){
+                    SobreDialog.showSobreDialog(getFragmentManager());
+                    return true;
+                }
+
+                return super.shouldOverrideUrlLoading(webView, url);
             }
         });
     }
