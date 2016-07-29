@@ -8,7 +8,8 @@
     <string name="error_email">E-mail inválido!</string>
     <string name="error_senha">Senha inválida!</string>
 
-    <string name="editar">Editar</string>
+    <string name="sobre">Sobre</string>
+
     <string name="carros">Carros</string>
     <string name="classicos">Clássicos</string>
     <string name="esportivos">Esportivos</string>

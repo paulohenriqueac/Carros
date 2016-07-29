@@ -37,14 +37,17 @@ public class SobreDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.dialog_fragment_sobre, container, false);
-        Button buttonFechar = (Button) view.findViewById(R.id.sobre_btn_fechar);
 
+        getDialog().setTitle(R.string.sobre_titulo);
+
+        Button buttonFechar = (Button) view.findViewById(R.id.sobre_btn_fechar);
         buttonFechar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
+
         return view;
     }
 }
