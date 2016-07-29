@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_carros_todos"
+            android:icon="@drawable/ic_drawer_carro"
+            android:title="@string/carros"
+            android:checked="true" />
+        <item
+            android:id="@+id/nav_item_carros_classicos"
+            android:icon="@drawable/ic_drawer_carro"
+            android:title="@string/classicos" />
+        <item
+            android:id="@+id/nav_item_carros_esportivos"
+            android:icon="@drawable/ic_drawer_carro"
+            android:title="@string/esportivos" />
+        <item
+            android:id="@+id/nav_item_carros_luxo"
+            android:icon="@drawable/ic_drawer_carro"
+            android:title="@string/luxo" />
+        <item
+            android:id="@+id/nav_item_site_livro"
+            android:icon="@drawable/ic_page"
+            android:title="@string/site_livro" />
+        <item
+            android:id="@+id/nav_item_configuracoes"
+            android:icon="@drawable/ic_drawer_settings"
+            android:title="@string/configuracoes" />
+        <item
+            android:id="@+id/nav_item_sair"
+            android:icon="@drawable/ic_exit"
+            android:title="@string/sair" />
+    </group>
+</menu>
