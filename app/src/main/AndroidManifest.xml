@@ -18,9 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.SiteActivity"
-            android:parentActivityName=".activity.HomeActivity">
-        </activity>
+        <activity
+            android:name=".activity.SiteActivity"
+            android:parentActivityName=".activity.HomeActivity" />
+        <activity
+            android:name=".activity.DetalheCarroActivity"
+            android:parentActivityName=".activity.HomeActivity" />
     </application>
 
 </manifest>

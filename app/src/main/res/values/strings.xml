@@ -22,4 +22,7 @@
     <string name="sobre_mensagem">Desenvolvido por Paulo Andrade, com base nos livros
     Android Essencial e Dominando o Android, da Editora NOVATEC.</string>
     <string name="sobre_btn_fechar">Fechar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

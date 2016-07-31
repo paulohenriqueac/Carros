@@ -1,11 +1,9 @@
 package br.com.androidessencial.carros.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +15,7 @@ import android.widget.Toast;
 
 import br.com.androidessencial.carros.CarrosApplication;
 import br.com.androidessencial.carros.R;
-import br.com.androidessencial.carros.fragment.CarroFragment;
+import br.com.androidessencial.carros.fragment.ListaCarroFragment;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -99,7 +97,7 @@ public class BaseActivity extends AppCompatActivity {
                 Toast.makeText(this, "Clicou em Configurações", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_item_sair:
-                startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
                 break;
         }
@@ -109,24 +107,19 @@ public class BaseActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        CarroFragment carroFragment;
+        ListaCarroFragment listaCarroFragment;
 
-        carroFragment = (CarroFragment) fm.findFragmentByTag(tipo);
+        listaCarroFragment = (ListaCarroFragment) fm.findFragmentByTag(tipo);
 
-        if (carroFragment == null){
-            carroFragment = CarroFragment.novaInstancia();
-
-            //Passando o parametro tipo do carro para o Fragment
-            Bundle param = new Bundle();
-            param.putString("tipo", tipo);
-            carroFragment.setArguments(param);
+        if (listaCarroFragment == null){
+            listaCarroFragment = ListaCarroFragment.novaInstancia(tipo);
 
             //Adicionar o fragment ao layout
-            ft.replace(R.id.content, carroFragment, tipo);
+            ft.replace(R.id.content, listaCarroFragment, tipo);
             ft.commit();
         } else {
-            if (!carroFragment.isVisible()) {
-                ft.replace(R.id.content, carroFragment, tipo);
+            if (!listaCarroFragment.isVisible()) {
+                ft.replace(R.id.content, listaCarroFragment, tipo);
                 ft.commit();
             }
         }

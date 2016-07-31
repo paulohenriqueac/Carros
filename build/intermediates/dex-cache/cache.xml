@@ -1,3 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Paulo\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.1.1\3af19f153122737b372622fa6c81dd11a1c6b999\support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.1.1_33962635635472a14c47f5fb33b7c30e08e25182\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3824b96aa75451713f784522ce6c033266b8a1b1">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_daf38827c58f4a86d39e66034ec53ddbab5b2c45\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\design\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="e195bd694d5389acfba27ff4fdfa64c4c65b2c05">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.1.1_0beb638efd7ba1ec9313be22055005ef223fd049\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_20954abe3c6313b675d65745164eae08488503e6\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.1.1_7950ba4cb39c28bb49d390c9dadc3e908b0d0e18\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_62525cf5f36207525c6b0df86caf2b6fab548f82\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.1.1_d2b4460d15890cbed34d4a04dfb402f248c5d37d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="787871951412550519b0222aba3c9df4cea49875">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.1.1_c98dbe9007a5d7c7347837c4893144e213b672fb\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="914f37e432b0cc3f7ca5fc2820987d48303367ff">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_b857077d02359643b1eebff2bec37cc00fa6c284\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="4add8aa95c9f4e9a2ad64b7e2bf08e97e28955c1">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.1.1_4dc33c911a71c3dbea64458921e9722b6caf7ba0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_36a221871bae1e2e3b50eea135ba302e18caa839\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.1.1_546dae21354103842ae9982af47c40b237e96977\classes.dex" />
+    </item>
+
+</items>
