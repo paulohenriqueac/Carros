@@ -22,7 +22,7 @@
             android:name=".activity.SiteActivity"
             android:parentActivityName=".activity.HomeActivity" />
         <activity
-            android:name=".activity.DetalheCarroActivity"
+            android:name=".activity.DetalheActivity"
             android:parentActivityName=".activity.HomeActivity" />
     </application>
 

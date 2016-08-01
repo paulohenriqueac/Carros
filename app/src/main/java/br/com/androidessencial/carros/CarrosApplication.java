@@ -8,7 +8,7 @@ import br.com.androidessencial.carros.domain.Usuario;
 
 public class CarrosApplication extends Application{
 
-    private String TAG = "CarrosApplication";
+    private static final String TAG = "CarrosApplication";
     private CarrosApplication instance = null;
     public static Usuario usuario = null;
 

@@ -9,13 +9,14 @@
     <dimen name="nav_drawer_header">150dp</dimen>
 
     <dimen name="card_view_margin">6dp</dimen>
-    <dimen name="card_elevaton">3dp</dimen>
-    <dimen name="card_view_elevaton">6dp</dimen>
     <dimen name="card_elevation">3dp</dimen>
+    <dimen name="card_view_elevation">6dp</dimen>
     <dimen name="card__view_radius">2dp</dimen>
 
     <!-- Foto do Carro -->
     <dimen name="img_carro_adapter_width">250dp</dimen>
     <dimen name="img_carro_adapter_height">107dp</dimen>
+    <dimen name="foto_carro_width">260dp</dimen>
+    <dimen name="foto_carro_height">110dp</dimen>
 
 </resources>

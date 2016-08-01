@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import br.com.androidessencial.carros.CarrosApplication;
 import br.com.androidessencial.carros.R;
-import br.com.androidessencial.carros.fragment.ListaCarroFragment;
+import br.com.androidessencial.carros.fragment.ListaFragment;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -107,19 +107,19 @@ public class BaseActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        ListaCarroFragment listaCarroFragment;
+        ListaFragment listaFragment;
 
-        listaCarroFragment = (ListaCarroFragment) fm.findFragmentByTag(tipo);
+        listaFragment = (ListaFragment) fm.findFragmentByTag(tipo);
 
-        if (listaCarroFragment == null){
-            listaCarroFragment = ListaCarroFragment.novaInstancia(tipo);
+        if (listaFragment == null){
+            listaFragment = ListaFragment.novaInstancia(tipo);
 
             //Adicionar o fragment ao layout
-            ft.replace(R.id.content, listaCarroFragment, tipo);
+            ft.replace(R.id.content, listaFragment, tipo);
             ft.commit();
         } else {
-            if (!listaCarroFragment.isVisible()) {
-                ft.replace(R.id.content, listaCarroFragment, tipo);
+            if (!listaFragment.isVisible()) {
+                ft.replace(R.id.content, listaFragment, tipo);
                 ft.commit();
             }
         }

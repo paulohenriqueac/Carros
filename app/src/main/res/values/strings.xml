@@ -20,7 +20,7 @@
 
     <string name="sobre_titulo">Aplicativo Carros</string>
     <string name="sobre_mensagem">Desenvolvido por Paulo Andrade, com base nos livros
-    Android Essencial e Dominando o Android, da Editora NOVATEC.</string>
+    Android Essencial e Dominando o Android, da Editora NOVATEC. Versão 1.0</string>
     <string name="sobre_btn_fechar">Fechar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
