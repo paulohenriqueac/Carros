@@ -21,6 +21,11 @@ public class SiteFragment extends BaseFragment {
     private ProgressBar progressBar;
     private SwipeRefreshLayout swipeLayout;
 
+    public static SiteFragment novaInstancia(){
+        SiteFragment siteFragment = new SiteFragment();
+        return siteFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

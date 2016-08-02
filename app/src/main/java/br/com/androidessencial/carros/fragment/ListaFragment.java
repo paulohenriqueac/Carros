@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import br.com.androidessencial.carros.R;
@@ -71,7 +73,7 @@ public class ListaFragment extends BaseFragment {
                 Carro c = carros.get(position);
 
                 Intent intent = new Intent(getContext(), DetalheActivity.class);
-                intent.putExtra(CARRO, c);
+                intent.putExtra(CARRO, Parcels.wrap(c));
                 startActivity(intent);
             }
         };

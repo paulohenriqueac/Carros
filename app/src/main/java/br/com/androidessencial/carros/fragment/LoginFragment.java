@@ -20,6 +20,11 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     private EditText editTextSenha;
     private Button btnEntrar;
 
+    public static LoginFragment novaInstancia(){
+        LoginFragment loginFragment = new LoginFragment();
+        return loginFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

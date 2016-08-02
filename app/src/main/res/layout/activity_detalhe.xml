@@ -10,7 +10,7 @@
 
     <!-- Conteudo Aqui -->
     <LinearLayout
-        android:id="@+id/content"
+        android:id="@+id/activity_detalhe_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" />

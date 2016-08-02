@@ -7,9 +7,10 @@
     <!-- Toolbar -->
     <include layout="@layout/toolbar" />
 
-    <fragment
-        android:id="@+id/frag_site"
+    <!-- Conteudo Aqui -->
+    <LinearLayout
+        android:id="@+id/activity_site_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="br.com.androidessencial.carros.fragment.SiteFragment" />
+        android:orientation="vertical"/>
 </LinearLayout>
