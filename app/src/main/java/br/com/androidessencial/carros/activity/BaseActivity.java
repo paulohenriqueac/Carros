@@ -1,6 +1,7 @@
 package br.com.androidessencial.carros.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -21,10 +22,10 @@ import br.com.androidessencial.carros.fragment.ListaFragment;
 public class BaseActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    private static final String CARROS = "carros";
-    private static final String CLASSICOS = "classicos";
-    private static final String ESPORTIVOS = "esportivos";
-    private static final String LUXO = "luxo";
+    public  static final String TIPO = "Tipo";
+    private static final String CLASSICOS = "Clássicos";
+    private static final String ESPORTIVOS = "Esportivos";
+    private static final String LUXO = "Luxo";
 
 
     // Configurar a Toolbar
@@ -65,9 +66,6 @@ public class BaseActivity extends AppCompatActivity {
                 }
             }
         );
-
-        //Selecionar opcao carro ao abrir aplicativo
-        obterFragment(CARROS);
     }
 
     private void selecionarOpcaoMenu(MenuItem menuItem) {
@@ -79,16 +77,15 @@ public class BaseActivity extends AppCompatActivity {
 
         switch (menuItem.getItemId()){
             case R.id.nav_item_carros_todos:
-                obterFragment(CARROS);
                 break;
             case R.id.nav_item_carros_classicos:
-                obterFragment(CLASSICOS);
+                mostrarListaCarros(CLASSICOS);
                 break;
             case R.id.nav_item_carros_esportivos:
-                obterFragment(ESPORTIVOS);
+                mostrarListaCarros(ESPORTIVOS);
                 break;
             case R.id.nav_item_carros_luxo:
-                obterFragment(LUXO);
+                mostrarListaCarros(LUXO);
                 break;
             case R.id.nav_item_site_livro:
                 startActivity(new Intent(this, SiteActivity.class));
@@ -103,26 +100,14 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private void obterFragment(String tipo){
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
+    private void  mostrarListaCarros(String tipo){
+        Intent intent = new Intent(this, ListaActivity.class);
+        Bundle param = new Bundle();
 
-        ListaFragment listaFragment;
+        param.putString(TIPO, tipo);
+        intent.putExtras(param);
 
-        listaFragment = (ListaFragment) fm.findFragmentByTag(tipo);
-
-        if (listaFragment == null){
-            listaFragment = ListaFragment.novaInstancia(tipo);
-
-            //Adicionar o fragment ao layout
-            ft.replace(R.id.content, listaFragment, tipo);
-            ft.commit();
-        } else {
-            if (!listaFragment.isVisible()) {
-                ft.replace(R.id.content, listaFragment, tipo);
-                ft.commit();
-            }
-        }
+        startActivity(intent);
     }
 }
 

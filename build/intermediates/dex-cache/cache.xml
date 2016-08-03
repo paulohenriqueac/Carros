@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Paulo\.gradle\caches\modules-2\files-2.1\org.parceler\parceler-api\1.0.4\4f7392b86e064f3f6da06977f54c21a48e6b6871\parceler-api-1.0.4.jar"
+        jar="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="4f7392b86e064f3f6da06977f54c21a48e6b6871">
-        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\parceler-api-1.0.4_009187d079ad3b6d577bdd3e47fba6918e76e47c\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Paulo\.gradle\caches\modules-2\files-2.1\org.parceler\parceler\1.0.4\36ec49b7df28eb03fe04c80620e07640fd826479\parceler-1.0.4.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="36ec49b7df28eb03fe04c80620e07640fd826479">
-        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\parceler-1.0.4_94af1e5713938a0871118907f1649611bc152325\classes.dex" />
+        sha1="0e83cc72706f1073e9c77fd8e0d476ea214786a3">
+        <dex dex="C:\Users\Paulo\AndroidStudioProjects\Carros\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_daf38827c58f4a86d39e66034ec53ddbab5b2c45\classes.dex" />
     </item>
 
 </items>

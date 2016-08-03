@@ -1,38 +1,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="@dimen/padding"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="@drawable/nav_drawer_header">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="@dimen/app_title"
-        android:layout_gravity="center_horizontal" />
-
-    <EditText
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:textColor="@color/white"
-        android:id="@+id/editTextEmail"
-        android:hint="@string/email" />
+        android:layout_margin="@dimen/card_view_margin"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        card_view:cardCornerRadius="@dimen/cardview_default_radius"
+        card_view:cardElevation="@dimen/card_view_elevation">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/app_title"
+                android:layout_gravity="center_horizontal" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:textColor="@color/white"
-        android:id="@+id/editTextSenha"
-        android:hint="@string/senha" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:id="@+id/editTextEmail"
+                android:hint="@string/email" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:id="@+id/editTextSenha"
+                android:hint="@string/senha" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/entrar"
         android:id="@+id/buttonEntrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/entrar"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
