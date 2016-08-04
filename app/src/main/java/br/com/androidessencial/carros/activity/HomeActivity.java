@@ -1,12 +1,15 @@
 package br.com.androidessencial.carros.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import br.com.androidessencial.carros.R;
+import br.com.androidessencial.carros.adapter.TabsAdapter;
 import br.com.androidessencial.carros.dialog.SobreDialog;
 
 
@@ -18,6 +21,7 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         setUpToolbar();
         setupNavDrawer();
+        setupViewPager();
     }
 
     @Override
@@ -40,5 +44,17 @@ public class HomeActivity extends BaseActivity {
                 break;
         }
         return true;
+    }
+
+    private void setupViewPager(){
+        //ViewPager
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.setAdapter(new TabsAdapter(getBaseContext(), getSupportFragmentManager()));
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
+
+
     }
 }

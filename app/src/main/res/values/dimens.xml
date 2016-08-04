@@ -19,4 +19,7 @@
     <dimen name="foto_carro_width">260dp</dimen>
     <dimen name="foto_carro_height">110dp</dimen>
 
+    <!-- FAB -->
+    <dimen name="fab_margin">16dp</dimen>
+
 </resources>

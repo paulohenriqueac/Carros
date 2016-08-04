@@ -27,7 +27,6 @@ public class BaseActivity extends AppCompatActivity {
     private static final String ESPORTIVOS = "Esportivos";
     private static final String LUXO = "Luxo";
 
-
     // Configurar a Toolbar
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

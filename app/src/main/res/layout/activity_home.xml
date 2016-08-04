@@ -14,7 +14,21 @@
         <!-- Toolbar -->
         <include layout="@layout/toolbar" />
 
-        <!-- Conteudo da tela aqui -->
+        <!-- Tabs + ViewPager-->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/white"
+            app:tabIndicatorColor="@color/white"
+            app:tabTextColor="@color/tabTexColor"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" />
     </LinearLayout>
 
     <!-- Navigation View - Menu lateral -->
