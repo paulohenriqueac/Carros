@@ -1,11 +1,14 @@
 package br.com.androidessencial.carros.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import br.com.androidessencial.carros.R;
@@ -22,6 +25,14 @@ public class HomeActivity extends BaseActivity {
         setUpToolbar();
         setupNavDrawer();
         setupViewPager();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Snackbar.make(view, "Teste Coordinator, FAB e Snackbar ", Snackbar.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -54,7 +65,5 @@ public class HomeActivity extends BaseActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
-
-
     }
 }
