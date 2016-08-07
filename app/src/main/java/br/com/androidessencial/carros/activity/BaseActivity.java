@@ -57,13 +57,13 @@ public class BaseActivity extends AppCompatActivity {
         viewEmail.setText(CarrosApplication.usuario.getEmail());
 
         navigationView.setNavigationItemSelectedListener(
-            new NavigationView.OnNavigationItemSelectedListener(){
-                @Override
-                public boolean onNavigationItemSelected(MenuItem menuItem){
-                    selecionarOpcaoMenu(menuItem);
-                    return true;
+                new NavigationView.OnNavigationItemSelectedListener(){
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem){
+                        selecionarOpcaoMenu(menuItem);
+                        return true;
+                    }
                 }
-            }
         );
     }
 
@@ -109,4 +109,3 @@ public class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
