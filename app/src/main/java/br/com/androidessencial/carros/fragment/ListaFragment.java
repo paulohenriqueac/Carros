@@ -3,12 +3,15 @@ package br.com.androidessencial.carros.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.parceler.Parcels;
 
@@ -54,6 +57,27 @@ public class ListaFragment extends BaseFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
+
+        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                AppCompatActivity activity = (AppCompatActivity) getActivity();
+
+                View child = recyclerView.getChildAt(0);
+
+                if (dy == 0){
+                    activity.getSupportActionBar().show();
+                } else {
+                    if (child.isShown()) {
+                        activity.getSupportActionBar().hide();
+                    } else {
+                        activity.getSupportActionBar().show();
+                    }
+                }
+            }
+        });
 
         return view;
     }
