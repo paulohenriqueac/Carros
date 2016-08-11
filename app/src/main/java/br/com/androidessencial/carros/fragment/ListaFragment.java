@@ -3,7 +3,9 @@ package br.com.androidessencial.carros.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -58,23 +60,15 @@ public class ListaFragment extends BaseFragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
 
-        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
+            public void onScrollStateChanged (RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+                    AppCompatActivity activity = (AppCompatActivity) getActivity();
+                    ActionBar actionBar = (ActionBar) activity.getSupportActionBar();
 
-                AppCompatActivity activity = (AppCompatActivity) getActivity();
+                    actionBar.hide();
 
-                View child = recyclerView.getChildAt(0);
-
-                if (dy == 0){
-                    activity.getSupportActionBar().show();
-                } else {
-                    if (child.isShown()) {
-                        activity.getSupportActionBar().hide();
-                    } else {
-                        activity.getSupportActionBar().show();
-                    }
                 }
             }
         });
@@ -83,7 +77,7 @@ public class ListaFragment extends BaseFragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle bundle){
+    public void onActivityCreated(Bundle bundle){
         super.onActivityCreated(bundle);
 
         this.carros = CarroService.getCarros(getContext(), tipo);
