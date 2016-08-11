@@ -18,6 +18,7 @@ public class CarroService {
             c.nome = "Carro " + tipo + ": " + i;
             c.desc = "Desc " + i;
             c.urlFoto = "http://www.livroandroid.com.br/livro/carros/esportivos/Ferrari_FF.png";
+            c.posicao = String.valueOf(i);
 
             carros.add(c);
         }

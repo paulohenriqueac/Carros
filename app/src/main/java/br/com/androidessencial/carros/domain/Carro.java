@@ -7,6 +7,7 @@ public class Carro{
     public String nome;
     public String desc;
     public String urlFoto;
+    public String posicao;
     public String urlInfo;
     public String urlVideo;
     public String latitude;

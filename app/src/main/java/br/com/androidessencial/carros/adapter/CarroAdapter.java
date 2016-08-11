@@ -47,6 +47,7 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.CarrosViewHo
         Carro c = carros.get(position);
 
         holder.nome.setText(c.nome);
+        holder.posicao.setText(c.posicao);
         holder.progressBar.setVisibility(View.VISIBLE);
 
         Picasso.with(context).load(c.urlFoto).fit().into(holder.imagem,
@@ -73,14 +74,11 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.CarrosViewHo
         }
     }
 
-    public interface CarroOnClickListener{
-        public void onClickCarro(View view, int position);
-    }
-
     public static class CarrosViewHolder extends RecyclerView.ViewHolder{
         TextView nome;
         ImageView imagem;
         ProgressBar progressBar;
+        TextView posicao;
         CardView cardView;
 
         public CarrosViewHolder(View view){
@@ -88,7 +86,15 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.CarrosViewHo
             nome = (TextView) view.findViewById(R.id.textNomeCarro);
             imagem = (ImageView) view.findViewById(R.id.imageCarro);
             progressBar = (ProgressBar) view.findViewById(R.id.progress);
+            posicao = (TextView) view.findViewById(R.id.posicao);
             cardView = (CardView) view.findViewById(R.id.card_view);
+
         }
     }
+
+    public interface CarroOnClickListener{
+        public void onClickCarro(View view, int position);
+    }
+
 }
+

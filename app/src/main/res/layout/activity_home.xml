@@ -26,9 +26,10 @@
                 android:background="@color/colorPrimary"
                 app:tabSelectedTextColor="@color/white"
                 app:tabIndicatorColor="@color/white"
-                app:tabTextColor="@color/tabTexColor"
-                app:layout_scrollFlags="scroll|enterAlways"/>
+                app:tabTextColor="@color/tabTexColor" />
         </android.support.design.widget.AppBarLayout>
+
+
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
