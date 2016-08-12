@@ -15,10 +15,9 @@ public class CarroService {
             Carro c = new Carro();
 
             // Nome Dinâmico conforme o tipo escolhido
-            c.nome = "Carro " + tipo + ": " + i;
+            c.modelo = "Carro " + tipo + ": " + i;
             c.desc = "Desc " + i;
             c.urlFoto = "http://www.livroandroid.com.br/livro/carros/esportivos/Ferrari_FF.png";
-            c.posicao = String.valueOf(i);
 
             carros.add(c);
         }

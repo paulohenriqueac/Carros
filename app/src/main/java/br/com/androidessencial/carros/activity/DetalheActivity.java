@@ -24,11 +24,10 @@ public class DetalheActivity extends BaseActivity {
         setContentView(R.layout.activity_detalhe);
 
         setUpToolbar();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Carro c = Parcels.unwrap(getIntent().getParcelableExtra(CARRO));
-        getSupportActionBar().setTitle(c.nome);
+        getSupportActionBar().setTitle(c.modelo);
 
         ImageView imageView = (ImageView) findViewById(R.id.imgToolbar);
         Picasso.with(this).load(c.urlFoto).fit().into(imageView,

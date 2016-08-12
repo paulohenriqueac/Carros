@@ -35,23 +35,8 @@ public class DetalheFragment extends BaseFragment {
 
         carro = Parcels.unwrap(getArguments().getParcelable(CARRO));
 
-        TextView textViewDescricao = (TextView) view.findViewById(R.id.textViewDescricao);
-        //textViewDescricao.setText(carro.getDesc());
-
-        textViewDescricao.setText(carro.desc + "                                         " +
-                "                 " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " +
-                "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste");
+        TextView txtViewDescr = (TextView) view.findViewById(R.id.txtViewDescr);
+        txtViewDescr.setText(carro.desc);
 
         return view;
     }

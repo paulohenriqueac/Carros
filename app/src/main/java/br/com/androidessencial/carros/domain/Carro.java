@@ -4,10 +4,9 @@ package br.com.androidessencial.carros.domain;
 public class Carro{
     public long id;
     public String tipo;
-    public String nome;
+    public String modelo;
     public String desc;
     public String urlFoto;
-    public String posicao;
     public String urlInfo;
     public String urlVideo;
     public String latitude;
@@ -15,7 +14,7 @@ public class Carro{
 
     @Override
     public String toString(){
-        return "Carro{" + "nome'" + nome + "\'" + "}";
+        return "Carro{" + "Modelo'" + modelo + "\'" + "}";
     }
 
 }
