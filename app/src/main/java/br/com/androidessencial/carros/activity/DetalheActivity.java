@@ -16,12 +16,13 @@ public class DetalheActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe);
-        setUpToolbar();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //setUpToolbar();
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Carro c = Parcels.unwrap(getIntent().getParcelableExtra(CARRO));
-        getSupportActionBar().setTitle(c.nome);
+        //Carro c = Parcels.unwrap(getIntent().getParcelableExtra(CARRO));
+        //getSupportActionBar().setTitle(c.nome);
 
+        /*
         if (savedInstanceState == null) {
             DetalheFragment detalheFragment = DetalheFragment.novaInstancia();
             detalheFragment.setArguments(getIntent().getExtras());
@@ -31,7 +32,7 @@ public class DetalheActivity extends BaseActivity {
                 .commit();
 
         }
-
+        */
 
     }
 }

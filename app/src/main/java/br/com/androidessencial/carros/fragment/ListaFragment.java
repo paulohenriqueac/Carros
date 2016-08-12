@@ -60,19 +60,6 @@ public class ListaFragment extends BaseFragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
 
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged (RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
-                    AppCompatActivity activity = (AppCompatActivity) getActivity();
-                    ActionBar actionBar = (ActionBar) activity.getSupportActionBar();
-
-                    actionBar.hide();
-
-                }
-            }
-        });
-
         return view;
     }
 
