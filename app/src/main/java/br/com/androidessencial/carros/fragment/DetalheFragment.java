@@ -35,22 +35,6 @@ public class DetalheFragment extends BaseFragment {
 
         carro = Parcels.unwrap(getArguments().getParcelable(CARRO));
 
-        final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.detalhe_progress);
-
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageViewFoto);
-        Picasso.with(getContext()).load(carro.urlFoto).fit().into(imageView,
-            new com.squareup.picasso.Callback(){
-                @Override
-                public void onSuccess() {
-                    progressBar.setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onError(){
-                    progressBar.setVisibility(View.GONE);
-                }
-            });
-
         TextView textViewDescricao = (TextView) view.findViewById(R.id.textViewDescricao);
         //textViewDescricao.setText(carro.getDesc());
 

@@ -24,28 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/padding">
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/imageViewFoto"
-                    android:layout_width="@dimen/foto_carro_width"
-                    android:layout_height="@dimen/foto_carro_height"
-                    android:layout_gravity="center" />
-                <ProgressBar
-                    android:id="@+id/detalhe_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:scrollbarStyle="insideOverlay"/>
-            </FrameLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
 
-                android:background="@color/colorAccent" />
 
             <ScrollView
                 android:layout_width="match_parent"
