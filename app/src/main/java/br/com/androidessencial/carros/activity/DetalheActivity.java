@@ -23,8 +23,7 @@ public class DetalheActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setUpToolbar();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -47,9 +46,8 @@ public class DetalheActivity extends BaseActivity {
             detalheFragment.setArguments(getIntent().getExtras());
             getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.CarroFragment, detalheFragment, TAG)
+                .add(R.id.detalheContent, detalheFragment, TAG)
                 .commit();
-
         }
     }
 }
