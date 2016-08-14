@@ -46,7 +46,7 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.CarrosViewHo
     public void onBindViewHolder(final CarrosViewHolder holder, final int position){
         Carro c = carros.get(position);
 
-        holder.nome.setText(c.modelo);
+        holder.nome.setText(c.nome);
         holder.progressBar.setVisibility(View.VISIBLE);
 
         Picasso.with(context).load(c.urlFoto).fit().into(holder.imagem,
