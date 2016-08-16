@@ -3,21 +3,98 @@ package br.com.androidessencial.carros.service;
 import android.content.Context;
 import android.content.res.Resources;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import br.com.androidessencial.carros.R;
 import br.com.androidessencial.carros.domain.Carro;
 
 public class CarroService {
+
+    public static List<Carro> getCarros(Context context, String tipo) throws IOException, JSONException {
+        List<Carro> carros = new ArrayList<Carro>();
+
+        JSONObject jsonObject = getJSONObject(context, tipo);
+
+        try {
+            JSONArray jsonCarros = jsonObject.getJSONArray("carros");
+            Carro c = new Carro();
+
+            for (int i = 0; i < jsonCarros.length(); i++) {
+                JSONObject jCarro = jsonCarros.getJSONObject(i);
+
+                c.nome = jCarro.getString("nome");
+                c.desc = jCarro.getString("desc");
+                c.urlInfo = jCarro.getString("url_info");
+                c.urlFoto = jCarro.getString("url_foto");
+                c.urlVideo = jCarro.getString("url_video");
+                c.longitude = jCarro.getString("longitude");
+                c.latitude = jCarro.getString("latitude");
+
+                carros.add(c);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return carros;
+    }
+
+    private static JSONObject getJSONObject(Context context, String tipo)  throws IOException, JSONException {
+        InputStream is = null;
+        JSONObject jsonObject = null;
+
+        Resources resources = context.getResources();
+
+        if (tipo.equals(context.getString(R.string.classicos))) {
+            is = resources.openRawResource(R.raw.carros_classicos);
+        } else if (tipo.equals(context.getString(R.string.esportivos))) {
+            is = resources.openRawResource(R.raw.carros_esportivos);
+        } else if (tipo.equals(context.getString(R.string.luxo))) {
+            is = resources.openRawResource(R.raw.carros_luxo);
+        }
+
+        String string = bytesParaString(is);
+
+        try {
+            jsonObject = new JSONObject(string);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return jsonObject;
+    }
+
+    private static String bytesParaString(InputStream is) throws IOException {
+        byte[] b = new byte[1024];
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int bytesLidos;
+
+        while((bytesLidos = is.read(b)) != -1) {
+            buffer.write(b, 0, bytesLidos);
+        }
+
+        return new String(buffer.toByteArray(), "UTF-8");
+    }
+}
+
+
+
+
+
+
+
+
+/* EXEMPLO DE LEITURA DE ARQUIVO XML */
+
+/*public class CarroService {
     public static List<Carro> getCarros(Context context, String tipo) {
         List<Carro> carros = new ArrayList<Carro>();
 
@@ -44,10 +121,10 @@ public class CarroService {
             Node node = nodeList.item(i);
             Element element = (Element) node;
 
-            /*
-              getElementsByTag retorna um NodeList com a tag especificada, sendo necessario
-              pegar a primeira posição no .item(0), para então pegar o conteudo da tag
-            */
+
+            // getElementsByTag retorna um NodeList com a tag especificada, sendo necessario
+            // pegar a primeira posição no .item(0), para então pegar o conteudo da tag
+
             c.nome = element.getElementsByTagName("nome").item(0).getTextContent();
             c.desc = element.getElementsByTagName("desc").item(0).getTextContent();
             c.urlInfo = element.getElementsByTagName("url_info").item(0).getTextContent();
@@ -80,4 +157,4 @@ public class CarroService {
 
         return document;
     }
-}
+}*/

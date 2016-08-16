@@ -16,8 +16,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.parceler.Parcels;
 
+import java.io.IOException;
 import java.util.List;
 
 import br.com.androidessencial.carros.R;
@@ -68,7 +70,13 @@ public class ListaFragment extends BaseFragment {
     public void onActivityCreated(Bundle bundle){
         super.onActivityCreated(bundle);
 
-        this.carros = CarroService.getCarros(getContext(), tipo);
+        try {
+            this.carros = CarroService.getCarros(getContext(), tipo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         recyclerView.setAdapter(new CarroAdapter(getContext(), carros, onClickCarro()));
     }
 
