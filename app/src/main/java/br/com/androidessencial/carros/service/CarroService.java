@@ -2,14 +2,17 @@ package br.com.androidessencial.carros.service;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,27 +24,25 @@ public class CarroService {
     public static List<Carro> getCarros(Context context, String tipo) throws IOException, JSONException {
         List<Carro> carros = new ArrayList<Carro>();
 
-        JSONObject jsonObject = getJSONObject(context, tipo);
+        // Aqui tenho o objeto Root "carros" com todos os objetos "carro".
+        JSONObject jsonRoot = getJSONObject(context, tipo);
+        JSONObject jCarros = jsonRoot.getJSONObject("carros");
 
-        try {
-            JSONArray jsonCarros = jsonObject.getJSONArray("carros");
+        JSONArray jsonArray = jCarros.getJSONArray("carro");
+
+        for (int i = 0; i < jsonArray.length(); i++) {
             Carro c = new Carro();
 
-            for (int i = 0; i < jsonCarros.length(); i++) {
-                JSONObject jCarro = jsonCarros.getJSONObject(i);
+            JSONObject jo = jsonArray.getJSONObject(i);
+            c.nome = jo.getString("nome");
+            c.desc = jo.getString("desc");
+            c.urlInfo = jo.getString("url_info");
+            c.urlFoto = jo.getString("url_foto");
+            c.urlVideo = jo.getString("url_video");
+            c.latitude = jo.getString("latitude");
+            c.longitude = jo.getString("longitude");
 
-                c.nome = jCarro.getString("nome");
-                c.desc = jCarro.getString("desc");
-                c.urlInfo = jCarro.getString("url_info");
-                c.urlFoto = jCarro.getString("url_foto");
-                c.urlVideo = jCarro.getString("url_video");
-                c.longitude = jCarro.getString("longitude");
-                c.latitude = jCarro.getString("latitude");
-
-                carros.add(c);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            carros.add(c);
         }
 
         return carros;
@@ -49,7 +50,6 @@ public class CarroService {
 
     private static JSONObject getJSONObject(Context context, String tipo)  throws IOException, JSONException {
         InputStream is = null;
-        JSONObject jsonObject = null;
 
         Resources resources = context.getResources();
 
@@ -61,34 +61,28 @@ public class CarroService {
             is = resources.openRawResource(R.raw.carros_luxo);
         }
 
-        String string = bytesParaString(is);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is,  "utf-8"));
+
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+
+        while ((line = reader.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+
+        String result = sb.toString();
+
+        JSONObject jsonObject = null;
 
         try {
-            jsonObject = new JSONObject(string);
+            jsonObject = new JSONObject(result);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("log_tag", "Error parsing data " + e.toString());
         }
 
         return jsonObject;
     }
-
-    private static String bytesParaString(InputStream is) throws IOException {
-        byte[] b = new byte[1024];
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int bytesLidos;
-
-        while((bytesLidos = is.read(b)) != -1) {
-            buffer.write(b, 0, bytesLidos);
-        }
-
-        return new String(buffer.toByteArray(), "UTF-8");
-    }
 }
-
-
-
-
-
 
 
 
@@ -115,12 +109,11 @@ public class CarroService {
         NodeList nodeList = document.getElementsByTagName("carro");
 
         for (int i = 0; i < nodeList.getLength(); i++){
-            Carro c = new Carro();
-
             //Aqui eu tenho o nó na posicao i que representa um carro da lista
             Node node = nodeList.item(i);
             Element element = (Element) node;
 
+            Carro c = new Carro();
 
             // getElementsByTag retorna um NodeList com a tag especificada, sendo necessario
             // pegar a primeira posição no .item(0), para então pegar o conteudo da tag
