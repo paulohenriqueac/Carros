@@ -9,6 +9,9 @@ import br.com.androidessencial.carros.R;
 import br.com.androidessencial.carros.fragment.ListaFragment;
 
 public class TabsAdapter extends FragmentPagerAdapter {
+    private static final String TAG_CLASSICOS = "classicos";
+    private static final String TAG_ESPORTIVOS = "esportivos";
+    private static final String TAG_LUXO = "luxo";
     private Context context;
 
     public TabsAdapter(Context context, FragmentManager fm){
@@ -42,13 +45,13 @@ public class TabsAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                fragment = ListaFragment.novaInstancia(context.getString(R.string.classicos));
+                fragment = ListaFragment.novaInstancia(TAG_CLASSICOS);
                 break;
             case 1:
-                fragment = ListaFragment.novaInstancia(context.getString(R.string.esportivos));
+                fragment = ListaFragment.novaInstancia(TAG_ESPORTIVOS);
                 break;
             default:
-                fragment = ListaFragment.novaInstancia(context.getString(R.string.luxo));
+                fragment = ListaFragment.novaInstancia(TAG_LUXO);
                 break;
         }
 

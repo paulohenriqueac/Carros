@@ -8,11 +8,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +27,86 @@ public class CarroService {
     public static List<Carro> getCarros(Context context, String tipo) throws IOException, JSONException {
         List<Carro> carros = new ArrayList<Carro>();
 
-        // Aqui tenho o objeto Root "carros" com todos os objetos "carro".
+        JSONObject jsonRoot = getJSONObject(context, tipo);
+        JSONObject jCarros = jsonRoot.getJSONObject("carros");
+
+        JSONArray jsonArray = jCarros.getJSONArray("carro");
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            Carro c = new Carro();
+
+            JSONObject jo = jsonArray.getJSONObject(i);
+            c.nome = jo.getString("nome");
+            c.desc = jo.getString("desc");
+            c.urlInfo = jo.getString("url_info");
+            c.urlFoto = jo.getString("url_foto");
+            c.urlVideo = jo.getString("url_video");
+            c.latitude = jo.getString("latitude");
+            c.longitude = jo.getString("longitude");
+
+            carros.add(c);
+        }
+
+        return carros;
+    }
+
+    private static JSONObject getJSONObject(Context context, String tipo)  throws IOException, JSONException {
+        final int TIMEOUT_MILLIS = 15000;
+        String url_string = "http://www.livroandroid.com.br/livro/carros/carros_{tipo}.json";
+        URL url = new URL(url_string.replace("{tipo}", tipo));
+
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestMethod("GET");
+        urlConnection.setConnectTimeout(TIMEOUT_MILLIS);
+        urlConnection.setReadTimeout(TIMEOUT_MILLIS);
+        urlConnection.connect();
+
+        InputStream is = null;
+
+        try {
+            is = new BufferedInputStream(urlConnection.getInputStream());
+        } finally {
+            urlConnection.disconnect();
+        }
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is,  "utf-8"));
+
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+
+        while ((line = reader.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+
+        String result = sb.toString();
+
+        JSONObject jsonObject = null;
+
+        try {
+            jsonObject = new JSONObject(result);
+        } catch (JSONException e) {
+            Log.e("log_tag", "Error parsing data " + e.toString());
+        }
+
+        return jsonObject;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* EXEMPLO DE LEITURA DE ARQUIVO JSON */
+/*public class CarroService {
+
+    public static List<Carro> getCarros(Context context, String tipo) throws IOException, JSONException {
+        List<Carro> carros = new ArrayList<Carro>();
+
         JSONObject jsonRoot = getJSONObject(context, tipo);
         JSONObject jCarros = jsonRoot.getJSONObject("carros");
 
@@ -82,7 +164,7 @@ public class CarroService {
 
         return jsonObject;
     }
-}
+}*/
 
 
 
