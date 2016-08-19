@@ -24,33 +24,38 @@ import br.com.androidessencial.carros.domain.Carro;
 
 public class CarroService {
 
-    public static List<Carro> getCarros(Context context, String tipo) throws IOException, JSONException {
+    public static List<Carro> getCarros(Context context, String tipo) throws IOException{
         List<Carro> carros = new ArrayList<Carro>();
 
         JSONObject jsonRoot = getJSONObject(context, tipo);
-        JSONObject jCarros = jsonRoot.getJSONObject("carros");
+        JSONObject jCarros = null;
 
-        JSONArray jsonArray = jCarros.getJSONArray("carro");
+        try {
+            jCarros = jsonRoot.getJSONObject("carros");
 
-        for (int i = 0; i < jsonArray.length(); i++) {
-            Carro c = new Carro();
+            JSONArray jsonArray = jCarros.getJSONArray("carro");
 
-            JSONObject jo = jsonArray.getJSONObject(i);
-            c.nome = jo.getString("nome");
-            c.desc = jo.getString("desc");
-            c.urlInfo = jo.getString("url_info");
-            c.urlFoto = jo.getString("url_foto");
-            c.urlVideo = jo.getString("url_video");
-            c.latitude = jo.getString("latitude");
-            c.longitude = jo.getString("longitude");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                Carro c = new Carro();
 
-            carros.add(c);
+                JSONObject jo = jsonArray.getJSONObject(i);
+                c.nome = jo.getString("nome");
+                c.desc = jo.getString("desc");
+                c.urlInfo = jo.getString("url_info");
+                c.urlFoto = jo.getString("url_foto");
+                c.urlVideo = jo.getString("url_video");
+                c.latitude = jo.getString("latitude");
+                c.longitude = jo.getString("longitude");
+
+                carros.add(c);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
         return carros;
     }
 
-    private static JSONObject getJSONObject(Context context, String tipo)  throws IOException, JSONException {
+    private static JSONObject getJSONObject(Context context, String tipo)  throws IOException{
         final int TIMEOUT_MILLIS = 15000;
         String url_string = "http://www.livroandroid.com.br/livro/carros/carros_{tipo}.json";
         URL url = new URL(url_string.replace("{tipo}", tipo));

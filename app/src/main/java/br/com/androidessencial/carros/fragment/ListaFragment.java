@@ -1,6 +1,7 @@
 package br.com.androidessencial.carros.fragment;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -70,14 +71,15 @@ public class ListaFragment extends BaseFragment {
     public void onActivityCreated(Bundle bundle){
         super.onActivityCreated(bundle);
 
-        try {
-            this.carros = CarroService.getCarros(getContext(), tipo);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        recyclerView.setAdapter(new CarroAdapter(getContext(), carros, onClickCarro()));
+        //Buscar Lista de Carros
+        taskCarros(tipo);
+
+
+
+    }
+
+    private void taskCarros(String tipo){
+        new GetCarrosTask().execute();
     }
 
     private CarroAdapter.CarroOnClickListener onClickCarro() {
@@ -91,5 +93,28 @@ public class ListaFragment extends BaseFragment {
                 startActivity(intent);
             }
         };
+    }
+
+
+    private class GetCarrosTask extends AsyncTask<Void, Void, List<Carro>>{
+        @Override
+        protected List<Carro> doInBackground(Void... params) {
+            List<Carro> carros = null;
+
+            try {
+                return CarroService.getCarros(getContext(), tipo);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(List<Carro> carros) {
+            if(carros != null){
+               ListaFragment.this.carros = carros;
+               recyclerView.setAdapter(new CarroAdapter(getContext(), carros, onClickCarro()));
+            }
+        }
     }
 }
