@@ -2,6 +2,10 @@ package br.com.androidessencial.carros.service;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -14,11 +18,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.androidessencial.carros.CarrosApplication;
 import br.com.androidessencial.carros.R;
 import br.com.androidessencial.carros.domain.Carro;
 
@@ -27,7 +33,7 @@ public class CarroService {
     public static List<Carro> getCarros(Context context, String tipo) throws IOException{
         List<Carro> carros = new ArrayList<Carro>();
 
-        JSONObject jsonRoot = getJSONObject(context, tipo);
+        JSONObject jsonRoot = getObjetoJson(context, tipo);
         JSONObject jCarros = null;
 
         try {
@@ -55,32 +61,34 @@ public class CarroService {
         return carros;
     }
 
-    private static JSONObject getJSONObject(Context context, String tipo)  throws IOException{
+    private static JSONObject getObjetoJson(Context context, String tipo)  throws IOException {
         final int TIMEOUT_MILLIS = 15000;
         String url_string = "http://www.livroandroid.com.br/livro/carros/carros_{tipo}.json";
         URL url = new URL(url_string.replace("{tipo}", tipo));
 
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        urlConnection.setRequestMethod("GET");
-        urlConnection.setConnectTimeout(TIMEOUT_MILLIS);
-        urlConnection.setReadTimeout(TIMEOUT_MILLIS);
-        urlConnection.connect();
+        HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+        conexao.setRequestMethod("GET");
+        conexao.setConnectTimeout(TIMEOUT_MILLIS);
+        conexao.setReadTimeout(TIMEOUT_MILLIS);
+        conexao.connect();
 
         InputStream is = null;
-
-        try {
-            is = new BufferedInputStream(urlConnection.getInputStream());
-        } finally {
-            urlConnection.disconnect();
-        }
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is,  "utf-8"));
-
-        StringBuilder sb = new StringBuilder();
         String line = null;
+        StringBuilder sb = new StringBuilder();
 
-        while ((line = reader.readLine()) != null) {
-            sb.append(line + "\n");
+        if (conexao.getResponseCode() == HttpURLConnection.HTTP_OK){
+
+            try {
+                is = new BufferedInputStream(conexao.getInputStream());
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"));
+
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+            } finally {
+                conexao.disconnect();
+            }
         }
 
         String result = sb.toString();
@@ -95,6 +103,8 @@ public class CarroService {
 
         return jsonObject;
     }
+
+
 }
 
 

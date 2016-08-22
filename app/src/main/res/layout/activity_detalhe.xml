@@ -22,12 +22,24 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="@color/colorPrimary">
 
-            <ImageView
-                android:id="@+id/imgToolbar"
-                android:layout_width="@dimen/foto_carro_width"
-                android:layout_height="@dimen/foto_carro_height"
-                android:layout_gravity="center"
-                app:layout_collapseMode="parallax"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/imgToolbar"
+                    android:layout_width="@dimen/foto_carro_width"
+                    android:layout_height="@dimen/foto_carro_height"
+                    android:layout_gravity="center"
+                    app:layout_collapseMode="parallax"/>
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:foreground="@color/white" />
+            </FrameLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"

@@ -29,7 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Descrição"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/padding" />
 
             <TextView
                 android:id="@+id/txtViewDescr"
@@ -59,7 +60,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Vídeo"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/padding" />
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding"
+                android:src="@drawable/play"
+                android:background="@color/light_gray"
+                android:layout_gravity="center"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -84,7 +94,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mapa"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/padding" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

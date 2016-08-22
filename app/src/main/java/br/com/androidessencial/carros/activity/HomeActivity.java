@@ -32,7 +32,7 @@ public class HomeActivity extends BaseActivity {
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Snackbar.make(view, "Teste Coordinator, FAB e Snackbar ", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Clicou no FAB", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -8,6 +8,10 @@
     <string name="error_email">E-mail inválido!</string>
     <string name="error_senha">Senha inválida!</string>
 
+    <string name="problema_conexao">Sem conexão com a internet!</string>
+
+    <string name="carregando">Aguarde, carregando...</string>
+
     <string name="sobre">Sobre</string>
 
     <string name="carros">Carros</string>

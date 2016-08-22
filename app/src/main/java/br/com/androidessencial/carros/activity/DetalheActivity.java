@@ -33,7 +33,9 @@ public class DetalheActivity extends BaseActivity {
         Picasso.with(this).load(c.urlFoto).fit().into(imageView,
                 new com.squareup.picasso.Callback(){
                     @Override
-                    public void onSuccess() {}
+                    public void onSuccess() {
+                        findViewById(R.id.progress).setVisibility(View.INVISIBLE);
+                    }
 
                     @Override
                     public void onError(){}

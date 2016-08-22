@@ -1,28 +1,23 @@
 package br.com.androidessencial.carros.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import org.json.JSONException;
 import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.util.List;
 
+import br.com.androidessencial.carros.CarrosApplication;
 import br.com.androidessencial.carros.R;
 import br.com.androidessencial.carros.activity.DetalheActivity;
 import br.com.androidessencial.carros.adapter.CarroAdapter;
@@ -71,15 +66,16 @@ public class ListaFragment extends BaseFragment {
     public void onActivityCreated(Bundle bundle){
         super.onActivityCreated(bundle);
 
-        //Buscar Lista de Carros
-        taskCarros(tipo);
-
-
-
+        if (!CarrosApplication.verificarConexao(getContext())) {
+            Snackbar.make(getView(), getString(R.string.problema_conexao),Snackbar.LENGTH_INDEFINITE).show();
+        } else {
+            //Buscar Lista de Carros
+            taskCarros(this.tipo);
+        }
     }
 
     private void taskCarros(String tipo){
-        new GetCarrosTask().execute();
+        new GetCarrosTask().execute(tipo);
     }
 
     private CarroAdapter.CarroOnClickListener onClickCarro() {
@@ -95,14 +91,22 @@ public class ListaFragment extends BaseFragment {
         };
     }
 
+    private class GetCarrosTask extends AsyncTask<String, Void, List<Carro>>{
+        private ProgressDialog progressDialog = null;
 
-    private class GetCarrosTask extends AsyncTask<Void, Void, List<Carro>>{
         @Override
-        protected List<Carro> doInBackground(Void... params) {
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog(getContext());
+            progressDialog.setMessage(getString(R.string.carregando));
+            progressDialog.show();
+        }
+
+        @Override
+        protected List<Carro> doInBackground(String... params) {
             List<Carro> carros = null;
 
             try {
-                return CarroService.getCarros(getContext(), tipo);
+                return CarroService.getCarros(getContext(), params[0]);
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
@@ -115,6 +119,8 @@ public class ListaFragment extends BaseFragment {
                ListaFragment.this.carros = carros;
                recyclerView.setAdapter(new CarroAdapter(getContext(), carros, onClickCarro()));
             }
+
+            progressDialog.dismiss();
         }
     }
 }
