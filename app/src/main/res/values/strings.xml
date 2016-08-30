@@ -1,4 +1,6 @@
 <resources>
+    <string name="API_KEY">AIzaSyBUnI9ytw4Z9qFyFGF9YuRj7fY7hWOKi8Y</string>
+
     <string name="app_name">Carros</string>
 
     <string name="email">E-mail</string>
@@ -18,15 +20,18 @@
     <string name="classicos">Clássicos</string>
     <string name="esportivos">Esportivos</string>
     <string name="luxo">Luxo</string>
+    <string name="favoritos">Favoritos</string>
+
     <string name="site_livro">Site do Livro</string>
     <string name="configuracoes">Configurações</string>
     <string name="sair">Sair</string>
 
+    <string name="descricao">Descrição</string>
+    <string name="video">Vídeo</string>
+    <string name="localização">Localização</string>
+
     <string name="sobre_titulo">Aplicativo Carros</string>
-    <string name="sobre_mensagem">Desenvolvido por Paulo Andrade, com base nos livros
-    Android Essencial e Dominando o Android, da Editora NOVATEC. Versão 1.0</string>
+    <string name="sobre_mensagem">Desenvolvido por Paulo Andrade, com base nos livros Android Essencial e Dominando o Android, da Editora NOVATEC. Versão 1.0</string>
     <string name="sobre_btn_fechar">Fechar</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

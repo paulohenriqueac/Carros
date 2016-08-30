@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_item_carros_todos"
-            android:icon="@drawable/ic_drawer_carro"
-            android:title="@string/carros"
-            android:checked="true" />
-        <item
             android:id="@+id/nav_item_carros_classicos"
             android:icon="@drawable/ic_drawer_carro"
             android:title="@string/classicos" />
@@ -18,6 +13,10 @@
             android:id="@+id/nav_item_carros_luxo"
             android:icon="@drawable/ic_drawer_carro"
             android:title="@string/luxo" />
+        <item
+            android:id="@+id/nav_item_carros_favoritos"
+            android:icon="@drawable/ic_drawer_carro"
+            android:title="@string/favoritos" />
         <item
             android:id="@+id/nav_item_site_livro"
             android:icon="@drawable/ic_page"

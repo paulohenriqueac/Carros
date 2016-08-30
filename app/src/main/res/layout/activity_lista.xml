@@ -6,10 +6,10 @@
     android:orientation="vertical">
     <!-- Toolbar -->
     <include layout="@layout/toolbar" />
-
     <LinearLayout
         android:id="@+id/activity_lista_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" />
+
 </LinearLayout>

@@ -55,6 +55,10 @@ public class DetalheFragment extends BaseFragment {
             }
         });
 
+        MapaFragment mapaFragment = new MapaFragment();
+        mapaFragment.setArguments(getArguments());
+        getChildFragmentManager().beginTransaction().replace(R.id.mapaFragment,mapaFragment).commit();
+
         return view;
     }
 }

@@ -12,6 +12,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
     private static final String TAG_CLASSICOS = "classicos";
     private static final String TAG_ESPORTIVOS = "esportivos";
     private static final String TAG_LUXO = "luxo";
+    private static final String TAG_FAVORITOS = "favoritos";
     private Context context;
 
     public TabsAdapter(Context context, FragmentManager fm){
@@ -22,7 +23,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount(){
         //Quantidade de páginas
-        return 3;
+        return 4;
     }
 
     @Override
@@ -33,8 +34,10 @@ public class TabsAdapter extends FragmentPagerAdapter {
                 return context.getString(R.string.classicos);
             case 1:
                 return context.getString(R.string.esportivos);
-            default:
+            case 2:
                 return context.getString(R.string.luxo);
+            default:
+                return context.getString(R.string.favoritos);
         }
     }
 
@@ -50,9 +53,11 @@ public class TabsAdapter extends FragmentPagerAdapter {
             case 1:
                 fragment = ListaFragment.novaInstancia(TAG_ESPORTIVOS);
                 break;
-            default:
+            case 2:
                 fragment = ListaFragment.novaInstancia(TAG_LUXO);
                 break;
+            default:
+                fragment = ListaFragment.novaInstancia(TAG_FAVORITOS);
         }
 
         return fragment;

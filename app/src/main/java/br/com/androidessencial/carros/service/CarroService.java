@@ -1,11 +1,6 @@
 package br.com.androidessencial.carros.service;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkInfo;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -14,18 +9,15 @@ import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.androidessencial.carros.CarrosApplication;
-import br.com.androidessencial.carros.R;
 import br.com.androidessencial.carros.domain.Carro;
 
 public class CarroService {
@@ -33,31 +25,35 @@ public class CarroService {
     public static List<Carro> getCarros(Context context, String tipo) throws IOException{
         List<Carro> carros = new ArrayList<Carro>();
 
-        JSONObject jsonRoot = getObjetoJson(context, tipo);
-        JSONObject jCarros = null;
+        if (!tipo.equals(CarrosApplication.TAG_FAVORITOS)) {
 
-        try {
-            jCarros = jsonRoot.getJSONObject("carros");
+            JSONObject jsonRoot = getObjetoJson(context, tipo);
+            JSONObject jCarros = null;
 
-            JSONArray jsonArray = jCarros.getJSONArray("carro");
+            try {
+                jCarros = jsonRoot.getJSONObject(CarrosApplication.TAG_CARROS);
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-                Carro c = new Carro();
+                JSONArray jsonArray = jCarros.getJSONArray("carro");
 
-                JSONObject jo = jsonArray.getJSONObject(i);
-                c.nome = jo.getString("nome");
-                c.desc = jo.getString("desc");
-                c.urlInfo = jo.getString("url_info");
-                c.urlFoto = jo.getString("url_foto");
-                c.urlVideo = jo.getString("url_video");
-                c.latitude = jo.getString("latitude");
-                c.longitude = jo.getString("longitude");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    Carro c = new Carro();
 
-                carros.add(c);
+                    JSONObject jo = jsonArray.getJSONObject(i);
+                    c.nome = jo.getString("nome");
+                    c.desc = jo.getString("desc");
+                    c.urlInfo = jo.getString("url_info");
+                    c.urlFoto = jo.getString("url_foto");
+                    c.urlVideo = jo.getString("url_video");
+                    c.latitude = jo.getString("latitude");
+                    c.longitude = jo.getString("longitude");
+
+                    carros.add(c);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
+
         return carros;
     }
 
@@ -106,13 +102,6 @@ public class CarroService {
 
 
 }
-
-
-
-
-
-
-
 
 
 

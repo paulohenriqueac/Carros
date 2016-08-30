@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="6dp"
+    android:padding="@dimen/card_view_margin"
     android:id="@+id/frag_detalhe_carro">
 
     <!-- DESCRICAO -->
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_view_margin"
         app:cardElevation="@dimen/card_elevation"
         app:cardPreventCornerOverlap="false"
@@ -23,26 +23,26 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding">
+            android:layout_height="match_parent"
+            android:padding="@dimen/espacamento_padrao">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descrição"
+                android:text="@string/descricao"
                 android:textStyle="bold"
-                android:layout_marginBottom="@dimen/padding" />
+                android:layout_marginBottom="@dimen/espacamento_padrao" />
 
             <TextView
                 android:id="@+id/txtViewDescr"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <!-- VIDEO -->
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_view_margin"
         app:cardElevation="@dimen/card_elevation"
         app:cardPreventCornerOverlap="false"
@@ -54,19 +54,19 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding">
+            android:layout_height="match_parent"
+            android:padding="@dimen/espacamento_padrao">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vídeo"
+                android:text="@string/video"
                 android:textStyle="bold"
-                android:layout_marginBottom="@dimen/padding" />
+                android:layout_marginBottom="@dimen/espacamento_padrao" />
             <ImageView
                 android:id="@+id/play"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding"
+                android:padding="@dimen/espacamento_padrao"
                 android:src="@drawable/play"
                 android:background="@color/light_gray"
                 android:layout_gravity="center"/>
@@ -76,7 +76,7 @@
     <!-- MAPA -->
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_view_margin"
         app:cardElevation="@dimen/card_elevation"
         app:cardPreventCornerOverlap="false"
@@ -88,14 +88,18 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding">
+            android:layout_height="match_parent"
+            android:padding="@dimen/espacamento_padrao">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mapa"
+                android:text="@string/localização"
                 android:textStyle="bold"
-                android:layout_marginBottom="@dimen/padding" />
+                android:layout_marginBottom="@dimen/espacamento_padrao" />
+            <FrameLayout
+                android:id="@+id/mapaFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

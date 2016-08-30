@@ -23,9 +23,8 @@ public class BaseActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     public  static final String TIPO = "Tipo";
-    private static final String TAG_CLASSICOS = "classicos";
-    private static final String TAG_ESPORTIVOS = "esportivos";
-    private static final String TAG_LUXO = "luxo";
+
+
 
     // Configurar a Toolbar
     protected void setUpToolbar() {
@@ -75,16 +74,17 @@ public class BaseActivity extends AppCompatActivity {
         //Tratar evento de click no menu
 
         switch (menuItem.getItemId()){
-            case R.id.nav_item_carros_todos:
-                break;
             case R.id.nav_item_carros_classicos:
-                mostrarListaCarros(TAG_CLASSICOS);
+                mostrarListaCarros(CarrosApplication.TAG_CLASSICOS);
                 break;
             case R.id.nav_item_carros_esportivos:
-                mostrarListaCarros(TAG_ESPORTIVOS);
+                mostrarListaCarros(CarrosApplication.TAG_ESPORTIVOS);
                 break;
             case R.id.nav_item_carros_luxo:
-                mostrarListaCarros(TAG_LUXO);
+                mostrarListaCarros(CarrosApplication.TAG_LUXO);
+                break;
+            case R.id.nav_item_carros_favoritos:
+                mostrarListaCarros(CarrosApplication.TAG_FAVORITOS);
                 break;
             case R.id.nav_item_site_livro:
                 startActivity(new Intent(this, SiteActivity.class));

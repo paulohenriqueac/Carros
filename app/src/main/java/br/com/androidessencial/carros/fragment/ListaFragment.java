@@ -106,11 +106,12 @@ public class ListaFragment extends BaseFragment {
             List<Carro> carros = null;
 
             try {
-                return CarroService.getCarros(getContext(), params[0]);
+                carros = CarroService.getCarros(getContext(), params[0]);
             } catch (IOException e) {
                 e.printStackTrace();
-                return null;
             }
+
+            return carros;
         }
 
         @Override
