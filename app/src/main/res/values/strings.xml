@@ -1,3 +1,4 @@
+
 <resources>
     <string name="API_KEY">AIzaSyBUnI9ytw4Z9qFyFGF9YuRj7fY7hWOKi8Y</string>
 
@@ -29,6 +30,8 @@
     <string name="descricao">Descrição</string>
     <string name="video">Vídeo</string>
     <string name="localização">Localização</string>
+    <string name="add_favoritos">Carro adicionado aos Favoritos!</string>
+    <string name="del_favoritos">Carro removido dos Favoritos!</string>
 
     <string name="sobre_titulo">Aplicativo Carros</string>
     <string name="sobre_mensagem">Desenvolvido por Paulo Andrade, com base nos livros Android Essencial e Dominando o Android, da Editora NOVATEC. Versão 1.0</string>

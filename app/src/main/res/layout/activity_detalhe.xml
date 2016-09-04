@@ -22,15 +22,16 @@
             app:contentScrim="@color/colorPrimary">
 
             <FrameLayout
+                android:id="@+id/frameToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                app:layout_collapseMode="parallax">
                 <ImageView
                     android:id="@+id/imgToolbar"
                     android:layout_width="@dimen/foto_carro_width"
                     android:layout_height="@dimen/foto_carro_height"
-                    android:layout_gravity="center"
-                    app:layout_collapseMode="parallax"/>
+                    android:layout_gravity="center"/>
                 <ProgressBar
                     android:id="@+id/progress"
                     android:layout_width="wrap_content"
@@ -46,9 +47,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin" />
-
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        app:layout_anchor="@id/appbar"
+        android:id="@+id/fabFavoritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_favorite"
+        android:clickable="true"
+        app:borderWidth="1dp"
+        app:layout_anchorGravity="bottom|right|end" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/detalheContent"
@@ -56,14 +67,4 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_favorite"
-        android:clickable="true"
-        app:borderWidth="1dp"
-        app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|right|end" />
 </android.support.design.widget.CoordinatorLayout>

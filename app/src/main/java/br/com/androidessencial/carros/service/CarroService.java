@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.androidessencial.carros.CarrosApplication;
+import br.com.androidessencial.carros.dao.CarroDAO;
 import br.com.androidessencial.carros.domain.Carro;
 
 public class CarroService {
@@ -39,6 +40,7 @@ public class CarroService {
                     Carro c = new Carro();
 
                     JSONObject jo = jsonArray.getJSONObject(i);
+
                     c.nome = jo.getString("nome");
                     c.desc = jo.getString("desc");
                     c.urlInfo = jo.getString("url_info");
@@ -52,6 +54,9 @@ public class CarroService {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        } else {
+            CarroDAO dao = new CarroDAO(context);
+            carros = dao.findAll();
         }
 
         return carros;
