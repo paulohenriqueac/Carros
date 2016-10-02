@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,10 +53,12 @@ public class DetalheFragment extends BaseFragment {
             public void onClick(View view_fab) {
                 CarroDAO db = new CarroDAO(getContext());
 
-                boolean exists = db.exists(carro.nome);
+                boolean exists = db.exists(carro.nome.trim());
 
                 if (!exists) {
                     db.save(carro);
+                    fabFavorito.setImageTintList(ContextCompat.getColorStateList(getContext(), R.color.black));
+
                     Snackbar.make(view, getString(R.string.add_favoritos),Snackbar.LENGTH_SHORT).show();
                 } else {
                     db.delete(carro);

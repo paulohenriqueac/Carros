@@ -37,7 +37,6 @@ public class BaseActivity extends AppCompatActivity {
         //Icone hamburguer na Toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle =
                 new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name);
